@@ -104,12 +104,12 @@ const FileUpload = ({ values, setValues, setLoading }) => {
       </div>
       <div className="row">
         <label className="btn btn-primary btn-raised mt-3">
-          Choose File
+          Choose Image
           <input
             type="file"
-            multiple
+            
             hidden
-            accept="images/*"
+            uploader="uploader" multiple="multiple" accept="image/jpeg,image/png"
             onChange={fileUploadAndResize}
           />
         </label>

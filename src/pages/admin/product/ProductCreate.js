@@ -105,12 +105,16 @@ const ProductCreate = () => {
           {/* {JSON.stringify(values.images)} */}
 
           <div className="p-3">
-            <FileUpload
-              values={values}
-              setValues={setValues}
-              setLoading={setLoading}
-            />
+          <FileUpload
+          values={values}
+          setValues={setValues}
+          setLoading={setLoading}
+          
+        />
           </div>
+
+   
+         
 
           <ProductCreateForm
             handleSubmit={handleSubmit}
