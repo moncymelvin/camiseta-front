@@ -7,6 +7,7 @@ import {
   saveUserAddress,
   applyCoupon,
   createCashOrderForUser,
+  getUserAddress
 } from "../functions/user";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
@@ -26,8 +27,15 @@ const Checkout = ({ history }) => {
   const couponTrueOrFalse = useSelector((state) => state.coupon);
 
   useEffect(() => {
+    getUserAddress(user.token).then((res) => {
+      console.log("user adress",res.data);
+      // setProducts(res.data.products);
+      setAddress(res.data.address);
+      // setTotal(res.data.cartTotal);
+    });
+
     getUserCart(user.token).then((res) => {
-      console.log("user cart res", JSON.stringify(res.data, null, 4));
+      //console.log("user cart res", JSON.stringify(res.data, null, 4));
       setProducts(res.data.products);
       setTotal(res.data.cartTotal);
     });
@@ -54,7 +62,7 @@ const Checkout = ({ history }) => {
   };
 
   const saveAddressToDb = () => {
-    // console.log(address);
+     console.log(address);
     saveUserAddress(user.token, address).then((res) => {
       if (res.data.ok) {
         setAddressSaved(true);
@@ -157,7 +165,7 @@ const Checkout = ({ history }) => {
 
   return (
     <div className="row">
-      <div className="col-md-6">
+      <div className="col-md-6 p-5">
         <h4>Delivery Address</h4>
         <br />
         <br />
@@ -170,7 +178,7 @@ const Checkout = ({ history }) => {
         {discountError && <p className="bg-danger p-2">{discountError}</p>}
       </div>
 
-      <div className="col-md-6">
+      <div className="col-md-6 p-5" >
         <h4>Order Summary</h4>
         <hr />
         <p>Products {products.length}</p>
@@ -198,10 +206,10 @@ const Checkout = ({ history }) => {
             ) : (
               <button
                 className="btn btn-primary"
-                disabled={!addressSaved || !products.length}
+                disabled={address=="<p><br></p>" || !products.length}
                 onClick={() => history.push("/payment")}
               >
-                Place Order
+                Place Orde
               </button>
             )}
           </div>

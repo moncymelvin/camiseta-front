@@ -38,9 +38,9 @@ const CategoryUpdate = ({ history, match }) => {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="">
       <div className="row">
-        <div className="col-md-2">
+      <div className="col-md-2">
           <AdminNav />
         </div>
         <div className="col">

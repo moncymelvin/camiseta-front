@@ -109,7 +109,7 @@ const App = () => {
 
   return (
     <Suspense fallback={
-      <div classname="col text-center p-5">__Camiseta<LoadingOutlined/>__</div>
+      <div className="col text-center p-5">__Camiseta<LoadingOutlined/>__</div>
     }>
       <Header />
       <SideDrawer />

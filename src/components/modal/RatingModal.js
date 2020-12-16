@@ -25,11 +25,12 @@ const RatingModal = ({ children }) => {
 
   return (
     <>
-      <div onClick={handleModal}>
-        <StarOutlined className="text-danger" /> <br />{" "}
-        {user ? "Leave rating" : "Login to leave rating"}
+    <div className="bg-warning">
+      <div onClick={handleModal} >
+        <StarOutlined className="text-white" /> <br />{" "}
+       <div className="text-white"> {user ? "Leave rating" : "Login to leave rating"}</div>
       </div>
-      <Modal
+      <Modal className="bg-secondary"
         title="Leave your rating"
         centered
         visible={modalVisible}
@@ -41,6 +42,8 @@ const RatingModal = ({ children }) => {
       >
         {children}
       </Modal>
+      </div>
+
     </>
   );
 };

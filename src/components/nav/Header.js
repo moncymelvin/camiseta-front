@@ -45,31 +45,23 @@ const Header = () => {
   return (
     
     
-    <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal" >
+    <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal" theme="dark" >
 
 
     <Item key="logo" >
     
-    <Link to="/"><img src={Laptop} height="50px" width="170px"/></Link>
+    <img src={Laptop} height="50px" width="170px"/>
   </Item>
   
+
+  
+
+
+
+
     
 
-      <Item key="home" icon={<AppstoreOutlined />}>
-        <Link to="/">Home</Link>
-      </Item>
-
-      <Item key="shop" icon={<ShoppingOutlined />}>
-        <Link to="/shop">Shop</Link>
-      </Item>
-
-      <Item key="cart" icon={<ShoppingCartOutlined />}>
-        <Link to="/cart">
-          <Badge count={cart.length} offset={[9, 0]}>
-            Cart
-          </Badge>
-        </Link>
-      </Item>
+      
 
       {!user && (
         <Item key="register" icon={<UserAddOutlined />} className="float-right">
@@ -84,20 +76,20 @@ const Header = () => {
       )}
 
       {user && (
-        <SubMenu
+        <SubMenu 
           icon={<SettingOutlined />}
           title={user.email && user.email.split("@")[0]}
           className="float-right"
         >
           {user && user.role === "subscriber" && (
             <Item>
-              <Link to="/user/history">Dashboard</Link>
+              <Link to="/user/history" className="text-white">Dashboard</Link>
             </Item>
           )}
 
           {user && user.role === "admin" && (
             <Item>
-              <Link to="/admin/dashboard">Dashboard</Link>
+              <Link to="/admin/dashboard" className="text-white">Dashboard</Link>
             </Item>
           )}
 
@@ -106,6 +98,23 @@ const Header = () => {
           </Item>
         </SubMenu>
       )}
+
+      <Item key="cart" icon={<ShoppingCartOutlined />} className="float-right">
+      <Link to="/cart" className="text-white">
+        <Badge count={cart.length} offset={[9, 0]}>
+          Cart
+        </Badge>
+      </Link>
+    </Item>
+
+    <Item key="shop" icon={<ShoppingOutlined />} className="float-right">
+   <Link to="/shop"  className="text-white">Shop</Link>
+    </Item>
+
+   
+    <Item key="home" icon={<AppstoreOutlined />} className="float-right ">
+    <Link to="/" className="text-white">Home</Link>
+  </Item>
 
       <span className="float-right p-1">
         <Search />

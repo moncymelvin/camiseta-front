@@ -36,6 +36,8 @@ export const saveUserAddress = async (authtoken, address) =>
     }
   );
 
+ 
+
 export const applyCoupon = async (authtoken, coupon) =>
   await axios.post(
     `${process.env.REACT_APP_API}/user/cart/coupon`,
@@ -71,6 +73,15 @@ export const getWishlist = async (authtoken) =>
       authtoken,
     },
   });
+
+  export const getUserAddress = async (authtoken) =>
+  await axios.get(
+    `${process.env.REACT_APP_API}/user/address`, {
+      headers: {
+        authtoken,
+      },
+    }
+  );
 
 export const removeWishlist = async (productId, authtoken) =>
   await axios.put(

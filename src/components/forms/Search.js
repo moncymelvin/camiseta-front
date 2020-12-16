@@ -28,10 +28,11 @@ const Search = () => {
         onChange={handleChange}
         type="search"
         value={text}
-        className="form-control mr-sm-2"
-        placeholder="Search"
+        className=" rounded bg-white form-control mr-sm-2 p-2"
+        placeholder="Search for product"
+        
       />
-      <SearchOutlined onClick={handleSubmit} style={{ cursor: "pointer" }} />
+      <SearchOutlined onClick={handleSubmit} style={{ cursor: "pointer"  }} color="white"/>
     </form>
   );
 };

@@ -77,7 +77,7 @@ const SingleProduct = ({ product, onStarClick, star }) => {
       <div className="col-md-7">
         {images && images.length ? (
           <Carousel showArrows={true} autoPlay infiniteLoop>
-            {images && images.map((i) => <img src={i.url} key={i.public_id} />)}
+            {images && images.map((i) => <img src={i.url} key={i.public_id}  />)}
           </Carousel>
         ) : (
           <Card cover={<img src={Laptop} className="mb-3 card-image" />}></Card>
@@ -88,35 +88,38 @@ const SingleProduct = ({ product, onStarClick, star }) => {
             {description && description}
           </TabPane>
           <TabPane tab="More" key="2">
-            Call use on xxxx xxx xxx to learn more about this product.
+            Call use on 8075904751 to learn more about this product.
           </TabPane>
         </Tabs>
       </div>
 
       <div className="col-md-5">
-        <h1 className="bg-info p-3">{title}</h1>
+        <h2 className=" p-2">{title}</h2>
 
         {product && product.ratings && product.ratings.length > 0 ? (
           showAverage(product)
         ) : (
-          <div className="text-center pt-1 pb-3">No rating yet</div>
+          <div className="pt-1 pb-3">No rating yet</div>
         )}
 
-        <Card
+        <Card 
           actions={[
-            <Tooltip placement="top" title={tooltip}>
+            <Tooltip placement="top" title={tooltip} className="bg-secondary" >
               <a onClick={handleAddToCart} disabled={product.quantity < 1}>
-                <ShoppingCartOutlined className="text-danger" />
+                <ShoppingCartOutlined className="text-white" />
                 <br />
-                {product.quantity < 1 ? "Out of Stock" : "Add To Cart"}
+                <div className="text-white ">
+                {product.quantity < 1 ? "Out of Stock" : "Add To Cart"} </div>
               </a>
             </Tooltip>,
-            <a onClick={handleAddToWishlist}>
-              <HeartOutlined className="text-info" /> <br /> Add to Wishlist
+
+            <a onClick={handleAddToWishlist} className="bg-warning" >
+              <HeartOutlined className="text-white" /> <br /><div className="text-white "> Add to Wishlist</div>
             </a>,
-            <RatingModal>
-              <StarRating
-                name={_id}
+
+            <RatingModal >
+              <StarRating 
+                name={_id} 
                 numberOfStars={5}
                 rating={star}
                 changeRating={onStarClick}
