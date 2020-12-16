@@ -209,7 +209,7 @@ const Checkout = ({ history }) => {
                 disabled={address=="<p><br></p>" || !products.length}
                 onClick={() => history.push("/payment")}
               >
-                Place Orde
+                Place Order
               </button>
             )}
           </div>
