@@ -28,7 +28,7 @@ const RatingModal = ({ children }) => {
     <div className="bg-warning">
       <div onClick={handleModal} >
         <StarOutlined className="text-white" /> <br />{" "}
-       <div className="text-white"> {user ? "Leave rating" : "Login to leave rating"}</div>
+       <div className="text-white"> {user ? "Leave rating" : "Login to rate"}</div>
       </div>
       <Modal className="bg-secondary"
         title="Leave your rating"
