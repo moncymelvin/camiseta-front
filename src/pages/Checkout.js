@@ -27,12 +27,7 @@ const Checkout = ({ history }) => {
   const couponTrueOrFalse = useSelector((state) => state.coupon);
 
   useEffect(() => {
-    getUserAddress(user.token).then((res) => {
-      console.log("user adress",res.data);
-      // setProducts(res.data.products);
-      setAddress(res.data.address);
-      // setTotal(res.data.cartTotal);
-    });
+   
 
     getUserCart(user.token).then((res) => {
       //console.log("user cart res", JSON.stringify(res.data, null, 4));
